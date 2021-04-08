@@ -17,15 +17,15 @@ import com.test.bookapp.activity.DescriptionActivity
 import com.test.bookapp.model.Book
 import org.w3c.dom.Text
 
-class DashboardRecyclerAdapter (val context : Context, val itemList: ArrayList<Book>) :
+class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Book>) :
     RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>() {
 
     class DashboardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtBookName: TextView = view.findViewById(R.id.txtBookName)
-        val txtBookAuthor : TextView = view.findViewById(R.id.txtAuthorName)
-        val txtRating : TextView =view.findViewById(R.id.txtRating)
-        val txtRate : TextView = view.findViewById(R.id.txtRate)
-        val imgBook : ImageView = view.findViewById(R.id.imgBook)
+        val txtBookAuthor: TextView = view.findViewById(R.id.txtAuthorName)
+        val txtRating: TextView = view.findViewById(R.id.txtRating)
+        val txtRate: TextView = view.findViewById(R.id.txtRate)
+        val imgBook: ImageView = view.findViewById(R.id.imgBook)
         val rlBookContent: RelativeLayout = view.findViewById(R.id.rlBookContent)
     }
 
@@ -45,7 +45,7 @@ class DashboardRecyclerAdapter (val context : Context, val itemList: ArrayList<B
         holder.txtRate.text = book.bookPrice
         Picasso.get().load(book.bookImage).error(R.drawable.img_book_cover).into(holder.imgBook);
 
-        holder.rlBookContent.setOnClickListener{
+        holder.rlBookContent.setOnClickListener {
             //Toast.makeText(context,"Clicked on ${holder.txtBookName.text}",Toast.LENGTH_SHORT).show()
             val intent = Intent(context as Activity, DescriptionActivity::class.java)
             intent.putExtra("book_id", book.bookId)
